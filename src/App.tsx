@@ -6,7 +6,8 @@ const WA_NUMBER = "5579998680956";
 const WA_PHONE_DISPLAY = "(79) 99868-0956";
 const INSTAGRAM = "@jocielmabarbosaa";
 
-const LAWYER_PHOTO = "/jocielma-barbosa.jpg";
+// CORREÇÃO: Removida a barra inicial para funcionar em subpastas no GitHub Pages
+const LAWYER_PHOTO = "jocielma-barbosa.jpg";
 
 // Estátua da Justiça para o hero
 const JUSTICE_STATUE =
@@ -1245,6 +1246,8 @@ function Contact() {
 // ─── Footer ───────────────────────────────────────────────────────────────────
 
 function Footer() {
+  const currentYear = new Date().getFullYear(); // Adicionado para manter o ano dinâmico
+  
   return (
     <footer
       style={{
@@ -1265,7 +1268,7 @@ function Footer() {
         }}
       >
         <p style={{ fontSize: 11, color: MT, letterSpacing: "0.1em" }}>
-          © 2026 Jocielma Barbosa Advocacia · OAB/SE
+          © {currentYear} Jocielma Barbosa Advocacia · OAB/SE
         </p>
         <div style={{ display: "flex", gap: 28 }}>
           {["Sobre", "Serviços", "Depoimentos", "Contato"].map((n) => (
