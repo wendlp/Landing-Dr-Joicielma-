@@ -5,10 +5,8 @@ import path from 'node:path'
 
 // Vite config — https://vitejs.dev/config/
 export default defineConfig({
-  // O "base" deve ter exatamente o nome do seu repositório no GitHub
-  // Exemplo: se o repositório se chama "Paginas", mantenha '/Paginas/'
-  // Se for outro nome, altere de acordo com o nome do seu repositório.
-  base: '/Paginas/', 
+  // Se estiver no Vercel (process.env.VERCEL), usa '/', senão usa '/Paginas/' para o GitHub Pages
+  base: process.env.VERCEL ? '/' : '/Paginas/', 
   
   plugins: [
     react(),
