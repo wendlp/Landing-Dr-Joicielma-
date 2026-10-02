@@ -1,43 +1,43 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages[cite: 1]
 
 on:
   push:
     branches:
-      - main
+      - main[cite: 1]
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: read[cite: 1]
+  pages: write[cite: 1]
+  id-token: write[cite: 1]
 
 concurrency:
-  group: "pages"
-  cancel-in-progress: true
+  group: "pages"[cite: 1]
+  cancel-in-progress: true[cite: 1]
 
 jobs:
   deploy:
     environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+      name: github-pages[cite: 1]
+      url: ${{ steps.deployment.outputs.page_url }}[cite: 1]
+    runs-on: ubuntu-latest[cite: 1]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Set up Node
-        uses: actions/setup-node@v4
+      - name: Checkout[cite: 1]
+        uses: actions/checkout@v4[cite: 1]
+      - name: Set up Node[cite: 1]
+        uses: actions/setup-node@v4[cite: 1]
         with:
-          node-version: 20
-          cache: 'npm'
-      - name: Install dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+          node-version: 20[cite: 1]
+          cache: 'npm'[cite: 1]
+      - name: Install dependencies[cite: 1]
+        run: npm ci
+      - name: Build[cite: 1]
+        run: npm run build[cite: 1]
+      - name: Setup Pages[cite: 1]
+        uses: actions/configure-pages@v4[cite: 1]
+      - name: Upload artifact[cite: 1]
+        uses: actions/upload-pages-artifact@v3[cite: 1]
         with:
-          path: './dist'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          path: './dist'[cite: 1]
+      - name: Deploy to GitHub Pages[cite: 1]
+        id: deployment[cite: 1]
+        uses: actions/deploy-pages@v4[cite: 1]
