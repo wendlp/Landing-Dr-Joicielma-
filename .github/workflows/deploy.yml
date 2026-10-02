@@ -1,43 +1,54 @@
-name: Deploy to GitHub Pages[cite: 1]
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main[cite: 1]
+      - main
 
 permissions:
-  contents: read[cite: 1]
-  pages: write[cite: 1]
-  id-token: write[cite: 1]
+  contents: read
+  pages: write
+  id-token: write
 
 concurrency:
-  group: "pages"[cite: 1]
-  cancel-in-progress: true[cite: 1]
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   deploy:
     environment:
-      name: github-pages[cite: 1]
-      url: ${{ steps.deployment.outputs.page_url }}[cite: 1]
-    runs-on: ubuntu-latest[cite: 1]
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout[cite: 1]
-        uses: actions/checkout@v4[cite: 1]
-      - name: Set up Node[cite: 1]
-        uses: actions/setup-node@v4[cite: 1]
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
         with:
-          node-version: 20[cite: 1]
-          cache: 'npm'[cite: 1]
-      - name: Install dependencies[cite: 1]
-        run: npm ci
-      - name: Build[cite: 1]
-        run: npm run build[cite: 1]
-      - name: Setup Pages[cite: 1]
-        uses: actions/configure-pages@v4[cite: 1]
-      - name: Upload artifact[cite: 1]
-        uses: actions/upload-pages-artifact@v3[cite: 1]
+          version: latest
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
         with:
-          path: './dist'[cite: 1]
-      - name: Deploy to GitHub Pages[cite: 1]
-        id: deployment[cite: 1]
-        uses: actions/deploy-pages@v4[cite: 1]
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
