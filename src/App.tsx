@@ -669,12 +669,12 @@ function Services() {
         >
           {[
             {
-              icon: "📋",
+              icon: "Prancheta.png",
               title: "Inventário",
               desc: "Condução ágil e segura do inventário judicial e extrajudicial para partilha de bens com tranquilidade para toda a família.",
             },
             {
-              icon: "🏠",
+              icon: "Casa.png",
               title: "Usucapião",
               desc: "Regularização da posse e aquisição da propriedade por usucapião extrajudicial e judicial, com todo o suporte documental.",
             },
@@ -711,7 +711,11 @@ function Services() {
               >
                 Principal
               </div>
-              <div style={{ fontSize: 36, marginBottom: 16 }}>{s.icon}</div>
+              <img
+                src={`${import.meta.env.BASE_URL}${s.icon}`}
+                alt=""
+                style={{ width: 56, height: 56, objectFit: "contain", marginBottom: 16, display: "block" }}
+              />
               <h3
                 className="serif"
                 style={{ fontSize: 26, fontWeight: 600, color: G, marginBottom: 12 }}
@@ -754,22 +758,22 @@ function Services() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 3 }} className="srv-secondary">
           {[
             {
-              icon: "💍",
+              icon: "Alianca.png",
               title: "Planejamento Matrimonial",
               desc: "Pacto antenupcial, regime de bens e estratégias para proteger o patrimônio antes e durante o casamento ou união estável.",
             },
             {
-              icon: "📄",
+              icon: "Documento.png",
               title: "Regularização de Imóveis",
               desc: "Regularização fundiária, escrituras, registros e toda a documentação necessária para dar segurança jurídica ao seu imóvel.",
             },
             {
-              icon: "👨‍👩‍👧",
+              icon: "Familia.png",
               title: "Direito de Família",
               desc: "Divórcio, guarda, alimentos e demais questões familiares tratadas com sensibilidade e estratégia jurídica eficaz.",
             },
             {
-              icon: "🏛",
+              icon: "Tribunal.png",
               title: "Sucessões",
               desc: "Planejamento sucessório, testamentos e herança para organizar o seu patrimônio e garantir o futuro da sua família.",
             },
@@ -789,7 +793,11 @@ function Services() {
                 ((e.currentTarget as HTMLElement).style.borderColor = "rgba(196,149,58,0.10)")
               }
             >
-              <div style={{ fontSize: 28, marginBottom: 14 }}>{s.icon}</div>
+              <img
+                src={`${import.meta.env.BASE_URL}${s.icon}`}
+                alt=""
+                style={{ width: 44, height: 44, objectFit: "contain", marginBottom: 14, display: "block" }}
+              />
               <h4
                 className="serif"
                 style={{ fontSize: 17, fontWeight: 600, color: CR, marginBottom: 10 }}
