@@ -714,7 +714,7 @@ function Services() {
               <img
                 src={`${import.meta.env.BASE_URL}${s.icon}`}
                 alt=""
-                style={{ width: 56, height: 56, objectFit: "contain", marginBottom: 16, display: "block" }}
+                style={{ width: 80, height: 80, objectFit: "contain", marginBottom: 16, display: "block" }}
               />
               <h3
                 className="serif"
