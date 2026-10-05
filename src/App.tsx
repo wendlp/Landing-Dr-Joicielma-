@@ -98,14 +98,14 @@ function Header() {
             >
               <span
                 className="serif"
-                style={{ fontSize: 13, fontWeight: 600, color: G, letterSpacing: "0.05em" }}
+                style={{ fontSize: 14, fontWeight: 600, color: G, letterSpacing: "0.05em" }}
               >
                 JB
               </span>
             </div>
             <span
               style={{
-                fontSize: 13,
+                fontSize: 14,
                 fontWeight: 500,
                 color: G,
                 letterSpacing: "0.16em",
@@ -121,9 +121,9 @@ function Header() {
             {nav.map((n) => (
               <a
                 key={n}
-                href={`#${n.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")}`}
+                href={`#${n.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`}
                 style={{
-                  fontSize: 12,
+                  fontSize: 13,
                   letterSpacing: "0.12em",
                   color: CD,
                   textDecoration: "none",
@@ -139,11 +139,11 @@ function Header() {
             <a
               href="#contato"
               style={{
-                fontSize: 12,
+                fontSize: 13,
                 letterSpacing: "0.12em",
                 color: G,
                 border: `1px solid ${G}`,
-                padding: "8px 18px",
+                padding: "10px 20px",
                 textDecoration: "none",
                 textTransform: "uppercase",
                 transition: "background 0.2s, color 0.2s",
@@ -174,7 +174,7 @@ function Header() {
               display: "none",
             }}
           >
-            <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8}>
+            <svg width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8}>
               {open ? (
                 <>
                   <line x1="18" y1="6" x2="6" y2="18" />
@@ -206,10 +206,10 @@ function Header() {
             {nav.map((n) => (
               <a
                 key={n}
-                href={`#${n.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")}`}
+                href={`#${n.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`}
                 onClick={() => setOpen(false)}
                 style={{
-                  fontSize: 13,
+                  fontSize: 14,
                   letterSpacing: "0.12em",
                   color: CD,
                   textDecoration: "none",
@@ -223,10 +223,10 @@ function Header() {
               href="#contato"
               onClick={() => setOpen(false)}
               style={{
-                fontSize: 13,
+                fontSize: 14,
                 color: G,
                 border: `1px solid ${G}`,
-                padding: "10px 20px",
+                padding: "12px 20px",
                 textDecoration: "none",
                 textAlign: "center",
                 letterSpacing: "0.1em",
@@ -295,7 +295,8 @@ function Hero() {
           padding: "120px 32px 80px",
           width: "100%",
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
+          // CORREÇÃO AQUI: Mudado de 1fr 1fr para dar mais espaço ao texto na esquerda
+          gridTemplateColumns: "1.3fr 1fr", 
           gap: 60,
           alignItems: "center",
         }}
@@ -305,7 +306,7 @@ function Hero() {
         <div className="fade-up">
           <p
             style={{
-              fontSize: 11,
+              fontSize: 12, // Aumentado
               letterSpacing: "0.22em",
               color: G,
               textTransform: "uppercase",
@@ -319,7 +320,7 @@ function Hero() {
           <h1
             className="serif"
             style={{
-              fontSize: "clamp(40px, 5.5vw, 72px)",
+              fontSize: "clamp(44px, 6vw, 78px)", // Aumentado para letras maiores
               fontWeight: 700,
               lineHeight: 1.1,
               color: CR,
@@ -333,11 +334,11 @@ function Hero() {
 
           <p
             style={{
-              fontSize: 17,
+              fontSize: 19, // Aumentado de 17 para 19
               lineHeight: 1.72,
               color: CD,
               marginBottom: 40,
-              maxWidth: 480,
+              maxWidth: 580, // Aumentado de 480 para o texto não quebrar tão cedo
               textAlign: "justify",
             }}
           >
@@ -355,11 +356,11 @@ function Hero() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 10,
-                padding: "15px 28px",
+                padding: "16px 30px", // Aumentado
                 background: G,
                 color: BG,
                 textDecoration: "none",
-                fontSize: 13,
+                fontSize: 14, // Aumentado
                 fontWeight: 600,
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
@@ -368,7 +369,7 @@ function Hero() {
               onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = GL)}
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = G)}
             >
-              <WAIcon size={17} />
+              <WAIcon size={18} />
               Falar no WhatsApp
             </a>
             <a
@@ -376,11 +377,11 @@ function Hero() {
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                padding: "15px 28px",
+                padding: "16px 30px", // Aumentado
                 border: `1px solid ${CD}`,
                 color: CR,
                 textDecoration: "none",
-                fontSize: 13,
+                fontSize: 14, // Aumentado
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
                 transition: "border-color 0.2s, color 0.2s",
@@ -406,14 +407,14 @@ function Hero() {
               border: `1px solid ${GB}`,
               background: "rgba(13,13,11,0.75)",
               backdropFilter: "blur(12px)",
-              padding: "36px 40px",
-              maxWidth: 420,
+              padding: "40px 44px", // Aumentado levemente o padding
+              maxWidth: 440,
               width: "100%",
             }}
           >
             <p
               style={{
-                fontSize: 10,
+                fontSize: 11,
                 letterSpacing: "0.2em",
                 color: G,
                 textTransform: "uppercase",
@@ -426,7 +427,7 @@ function Hero() {
               style={{
                 display: "grid",
                 gridTemplateColumns: "1fr 1fr",
-                gap: "28px 40px",
+                gap: "32px 40px",
               }}
             >
               {[
@@ -438,17 +439,17 @@ function Hero() {
                 <div key={s.l}>
                   <div
                     className="serif"
-                    style={{ fontSize: 40, fontWeight: 700, color: G, lineHeight: 1 }}
+                    style={{ fontSize: 44, fontWeight: 700, color: G, lineHeight: 1 }} // Fonte dos números aumentada
                   >
                     {s.v}
                   </div>
                   <div
                     style={{
-                      fontSize: 10,
+                      fontSize: 11, // Aumentado
                       letterSpacing: "0.12em",
                       color: CD,
                       textTransform: "uppercase",
-                      marginTop: 6,
+                      marginTop: 8,
                     }}
                   >
                     {s.l}
@@ -508,10 +509,10 @@ function About() {
             transform: "translateX(-50%)",
             background: G,
             color: BG,
-            fontSize: 12,
+            fontSize: 13,
             fontWeight: 700,
             letterSpacing: "0.18em",
-            padding: "10px 28px",
+            padding: "12px 30px",
             textTransform: "uppercase",
           }}
         >
@@ -532,7 +533,7 @@ function About() {
       >
         <p
           style={{
-            fontSize: 10,
+            fontSize: 11,
             letterSpacing: "0.22em",
             color: G,
             textTransform: "uppercase",
@@ -544,7 +545,7 @@ function About() {
         <h2
           className="serif"
           style={{
-            fontSize: "clamp(30px, 3vw, 46px)",
+            fontSize: "clamp(34px, 3.5vw, 50px)", // Aumentado
             fontWeight: 700,
             color: CR,
             marginBottom: 24,
@@ -555,7 +556,7 @@ function About() {
         </h2>
         <p
           style={{
-            fontSize: 16,
+            fontSize: 18, // Aumentado
             lineHeight: 1.76,
             color: CD,
             marginBottom: 18,
@@ -569,7 +570,7 @@ function About() {
         </p>
         <p
           style={{
-            fontSize: 16,
+            fontSize: 18, // Aumentado
             lineHeight: 1.76,
             color: CD,
             marginBottom: 32,
@@ -589,9 +590,9 @@ function About() {
           ].map((item) => (
             <div key={item} style={{ display: "flex", alignItems: "center", gap: 14 }}>
               <div
-                style={{ width: 6, height: 6, borderRadius: "50%", background: G, flexShrink: 0 }}
+                style={{ width: 8, height: 8, borderRadius: "50%", background: G, flexShrink: 0 }}
               />
-              <span style={{ fontSize: 14, color: CD }}>{item}</span>
+              <span style={{ fontSize: 16, color: CD }}>{item}</span>
             </div>
           ))}
         </div>
@@ -627,7 +628,7 @@ function Services() {
           <div>
             <p
               style={{
-                fontSize: 10,
+                fontSize: 11,
                 letterSpacing: "0.22em",
                 color: G,
                 textTransform: "uppercase",
@@ -639,7 +640,7 @@ function Services() {
             <h2
               className="serif"
               style={{
-                fontSize: "clamp(36px, 4vw, 60px)",
+                fontSize: "clamp(40px, 4.5vw, 68px)", // Aumentado
                 fontWeight: 700,
                 color: CR,
                 lineHeight: 1,
@@ -650,7 +651,7 @@ function Services() {
           </div>
           <p
             style={{
-              fontSize: 16,
+              fontSize: 18, // Aumentado
               lineHeight: 1.72,
               color: CD,
               textAlign: "justify",
@@ -684,7 +685,7 @@ function Services() {
               style={{
                 background: S1,
                 border: `1px solid ${GB}`,
-                padding: "40px 36px",
+                padding: "44px 40px",
                 position: "relative",
                 transition: "border-color 0.25s",
               }}
@@ -702,8 +703,8 @@ function Services() {
                   top: 20,
                   right: 20,
                   border: `1px solid ${GB}`,
-                  padding: "4px 10px",
-                  fontSize: 10,
+                  padding: "6px 12px",
+                  fontSize: 11,
                   letterSpacing: "0.14em",
                   color: CD,
                   textTransform: "uppercase",
@@ -714,17 +715,17 @@ function Services() {
               <img
                 src={`${import.meta.env.BASE_URL}${s.icon}`}
                 alt=""
-                style={{ width: 80, height: 80, objectFit: "contain", marginBottom: 16, display: "block" }}
+                style={{ width: 86, height: 86, objectFit: "contain", marginBottom: 16, display: "block" }}
               />
               <h3
                 className="serif"
-                style={{ fontSize: 26, fontWeight: 600, color: G, marginBottom: 12 }}
+                style={{ fontSize: 28, fontWeight: 600, color: G, marginBottom: 12 }} // Aumentado
               >
                 {s.title}
               </h3>
               <p
                 style={{
-                  fontSize: 15,
+                  fontSize: 17, // Aumentado de 15 para 17
                   lineHeight: 1.72,
                   color: CD,
                   marginBottom: 24,
@@ -738,7 +739,7 @@ function Services() {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  fontSize: 11,
+                  fontSize: 12,
                   letterSpacing: "0.14em",
                   color: G,
                   textDecoration: "none",
@@ -783,7 +784,7 @@ function Services() {
               style={{
                 background: S2,
                 border: `1px solid rgba(196,149,58,0.10)`,
-                padding: "28px 24px",
+                padding: "32px 28px",
                 transition: "border-color 0.25s",
               }}
               onMouseEnter={(e) =>
@@ -796,15 +797,15 @@ function Services() {
               <img
                 src={`${import.meta.env.BASE_URL}${s.icon}`}
                 alt=""
-                style={{ width: 70, height: 70, objectFit: "contain", marginBottom: 14, display: "block" }}
+                style={{ width: 76, height: 76, objectFit: "contain", marginBottom: 14, display: "block" }}
               />
               <h4
                 className="serif"
-                style={{ fontSize: 17, fontWeight: 600, color: CR, marginBottom: 10 }}
+                style={{ fontSize: 19, fontWeight: 600, color: CR, marginBottom: 10 }} // Aumentado
               >
                 {s.title}
               </h4>
-              <p style={{ fontSize: 13, lineHeight: 1.68, color: MT, textAlign: "justify" }}>
+              <p style={{ fontSize: 15, lineHeight: 1.68, color: MT, textAlign: "justify" }}>
                 {s.desc}
               </p>
             </div>
@@ -837,17 +838,17 @@ function Quote() {
         textAlign: "center",
       }}
     >
-      <div style={{ maxWidth: 820, margin: "0 auto" }}>
+      <div style={{ maxWidth: 860, margin: "0 auto" }}>
         <div
           className="serif"
-          style={{ fontSize: 48, color: "rgba(0,0,0,0.25)", lineHeight: 1, marginBottom: 24 }}
+          style={{ fontSize: 52, color: "rgba(0,0,0,0.25)", lineHeight: 1, marginBottom: 24 }}
         >
           "
         </div>
         <blockquote
           className="serif"
           style={{
-            fontSize: "clamp(22px, 2.8vw, 34px)",
+            fontSize: "clamp(26px, 3.2vw, 38px)", // Aumentado
             fontWeight: 600,
             color: BG,
             lineHeight: 1.45,
@@ -861,11 +862,12 @@ function Quote() {
         </blockquote>
         <cite
           style={{
-            fontSize: 11,
+            fontSize: 13,
             letterSpacing: "0.2em",
-            color: "rgba(0,0,0,0.55)",
+            color: "rgba(0,0,0,0.65)",
             textTransform: "uppercase",
             fontStyle: "normal",
+            fontWeight: 600,
           }}
         >
           Dra. Jocielma Barbosa
@@ -904,7 +906,7 @@ function Testimonials() {
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <p
           style={{
-            fontSize: 10,
+            fontSize: 11,
             letterSpacing: "0.22em",
             color: G,
             textTransform: "uppercase",
@@ -916,7 +918,7 @@ function Testimonials() {
         <h2
           className="serif"
           style={{
-            fontSize: "clamp(36px, 4vw, 58px)",
+            fontSize: "clamp(40px, 4.5vw, 66px)", // Aumentado
             fontWeight: 700,
             color: CR,
             marginBottom: 48,
@@ -932,7 +934,7 @@ function Testimonials() {
               style={{
                 background: BG,
                 border: `1px solid ${GB}`,
-                padding: "36px 30px",
+                padding: "40px 34px",
                 display: "flex",
                 flexDirection: "column",
                 gap: 28,
@@ -946,7 +948,7 @@ function Testimonials() {
                   position: "absolute",
                   top: 20,
                   right: 24,
-                  fontSize: 40,
+                  fontSize: 44,
                   color: GB,
                   lineHeight: 1,
                 }}
@@ -955,7 +957,7 @@ function Testimonials() {
               </div>
               <p
                 style={{
-                  fontSize: 15,
+                  fontSize: 17, // Aumentado
                   lineHeight: 1.76,
                   color: CD,
                   flex: 1,
@@ -967,8 +969,8 @@ function Testimonials() {
               <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
                 <div
                   style={{
-                    width: 44,
-                    height: 44,
+                    width: 48,
+                    height: 48,
                     borderRadius: "50%",
                     background: G,
                     display: "flex",
@@ -979,18 +981,18 @@ function Testimonials() {
                 >
                   <span
                     className="serif"
-                    style={{ fontSize: 14, fontWeight: 700, color: BG }}
+                    style={{ fontSize: 16, fontWeight: 700, color: BG }}
                   >
                     {t.initials}
                   </span>
                 </div>
                 <div>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: CR }}>
+                  <div style={{ fontSize: 16, fontWeight: 600, color: CR }}>
                     {t.name}
                   </div>
                   <div
                     style={{
-                      fontSize: 10,
+                      fontSize: 11,
                       letterSpacing: "0.12em",
                       color: G,
                       textTransform: "uppercase",
@@ -1032,9 +1034,9 @@ function Contact() {
     width: "100%",
     background: "transparent",
     border: `1px solid ${GB}`,
-    padding: "14px 16px",
+    padding: "16px 18px", // Aumentado
     color: CR,
-    fontSize: 15,
+    fontSize: 17, // Aumentado
     fontFamily: "'Source Sans 3', sans-serif",
     outline: "none",
   };
@@ -1056,7 +1058,7 @@ function Contact() {
         <div>
           <p
             style={{
-              fontSize: 10,
+              fontSize: 11,
               letterSpacing: "0.22em",
               color: G,
               textTransform: "uppercase",
@@ -1068,7 +1070,7 @@ function Contact() {
           <h2
             className="serif"
             style={{
-              fontSize: "clamp(30px, 3.5vw, 48px)",
+              fontSize: "clamp(34px, 4vw, 54px)", // Aumentado
               fontWeight: 700,
               color: CR,
               marginBottom: 20,
@@ -1079,7 +1081,7 @@ function Contact() {
           </h2>
           <p
             style={{
-              fontSize: 16,
+              fontSize: 18, // Aumentado
               lineHeight: 1.72,
               color: CD,
               marginBottom: 36,
@@ -1090,7 +1092,7 @@ function Contact() {
             vamos juntos encontrar o melhor caminho.
           </p>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
             {[
               { label: "WhatsApp", value: WA_PHONE_DISPLAY, href: waLink() },
               { label: "Instagram", value: INSTAGRAM, href: "https://www.instagram.com/jocielmabarbosaa/" },
@@ -1100,11 +1102,11 @@ function Contact() {
               <div key={item.label}>
                 <p
                   style={{
-                    fontSize: 10,
+                    fontSize: 11,
                     letterSpacing: "0.16em",
                     color: G,
                     textTransform: "uppercase",
-                    marginBottom: 4,
+                    marginBottom: 6,
                   }}
                 >
                   {item.label}
@@ -1115,7 +1117,7 @@ function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
-                      fontSize: 15,
+                      fontSize: 17, // Aumentado
                       color: CR,
                       textDecoration: "none",
                       transition: "color 0.2s",
@@ -1126,7 +1128,7 @@ function Contact() {
                     {item.value}
                   </a>
                 ) : (
-                  <p style={{ fontSize: 15, color: CR }}>{item.value}</p>
+                  <p style={{ fontSize: 17, color: CR }}>{item.value}</p>
                 )}
               </div>
             ))}
@@ -1138,7 +1140,7 @@ function Contact() {
           <div style={{ marginBottom: 8 }}>
             <p
               style={{
-                fontSize: 10,
+                fontSize: 11,
                 letterSpacing: "0.16em",
                 color: CD,
                 textTransform: "uppercase",
@@ -1166,11 +1168,11 @@ function Contact() {
                 style={{
                   width: "100%",
                   marginTop: 12,
-                  padding: "16px",
+                  padding: "18px", // Aumentado
                   background: G,
                   color: BG,
                   border: "none",
-                  fontSize: 12,
+                  fontSize: 13, // Aumentado
                   fontWeight: 700,
                   letterSpacing: "0.16em",
                   textTransform: "uppercase",
@@ -1185,10 +1187,10 @@ function Contact() {
               </button>
               <p
                 style={{
-                  fontSize: 12,
+                  fontSize: 13,
                   color: MT,
                   textAlign: "center",
-                  marginTop: 10,
+                  marginTop: 12,
                 }}
               >
                 Abre o WhatsApp com sua mensagem já preenchida.
@@ -1201,11 +1203,11 @@ function Contact() {
                 display: "flex",
                 alignItems: "center",
                 gap: 16,
-                margin: "24px 0",
+                margin: "30px 0",
               }}
             >
               <div style={{ flex: 1, height: 1, background: GB }} />
-              <span style={{ fontSize: 12, color: MT, letterSpacing: "0.1em" }}>
+              <span style={{ fontSize: 13, color: MT, letterSpacing: "0.1em" }}>
                 OU
               </span>
               <div style={{ flex: 1, height: 1, background: GB }} />
@@ -1220,8 +1222,8 @@ function Contact() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                gap: 14,
-                padding: "18px",
+                gap: 16,
+                padding: "20px", // Aumentado
                 background: G,
                 color: BG,
                 textDecoration: "none",
@@ -1230,10 +1232,10 @@ function Contact() {
               onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = GL)}
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = G)}
             >
-              <WAIcon size={20} />
+              <WAIcon size={22} />
               <div>
-                <div style={{ fontSize: 15, fontWeight: 700 }}>{WA_PHONE_DISPLAY}</div>
-                <div style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", marginTop: 2 }}>
+                <div style={{ fontSize: 17, fontWeight: 700 }}>{WA_PHONE_DISPLAY}</div>
+                <div style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", marginTop: 2 }}>
                   Chamar no WhatsApp agora
                 </div>
               </div>
@@ -1254,14 +1256,14 @@ function Contact() {
 // ─── Footer ───────────────────────────────────────────────────────────────────
 
 function Footer() {
-  const currentYear = new Date().getFullYear(); // Adicionado para manter o ano dinâmico
+  const currentYear = new Date().getFullYear(); 
   
   return (
     <footer
       style={{
         background: S1,
         borderTop: `1px solid ${GB}`,
-        padding: "28px 32px",
+        padding: "32px 32px",
       }}
     >
       <div
@@ -1275,16 +1277,16 @@ function Footer() {
           gap: 16,
         }}
       >
-        <p style={{ fontSize: 11, color: MT, letterSpacing: "0.1em" }}>
+        <p style={{ fontSize: 12, color: MT, letterSpacing: "0.1em" }}>
           © {currentYear} Jocielma Barbosa Advocacia · OAB/SE
         </p>
         <div style={{ display: "flex", gap: 28 }}>
           {["Sobre", "Serviços", "Depoimentos", "Contato"].map((n) => (
             <a
               key={n}
-              href={`#${n.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")}`}
+              href={`#${n.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`}
               style={{
-                fontSize: 11,
+                fontSize: 12,
                 color: MT,
                 textDecoration: "none",
                 letterSpacing: "0.1em",
@@ -1320,7 +1322,7 @@ function WAFab() {
       className="wa-fab"
       aria-label="Falar no WhatsApp"
     >
-      <WAIcon size={24} color="#fff" />
+      <WAIcon size={26} color="#fff" />
     </a>
   );
 }
